@@ -24,7 +24,7 @@ const Page = () => {
 
     return(
         <div class="contain">
-          <section class="holder">
+            <section class="holder">
               {/* Page Details Main */}
               <main class="boda2">
                 <div className="main">

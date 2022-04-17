@@ -77,6 +77,7 @@ $link-color: red;
 
 
 
+
 /* Navbar */
 .nav-link{
     color: antiquewhite!important;
@@ -142,6 +143,8 @@ nav{
 
 
 
+
+
 // PAGES
 
 // main
@@ -174,7 +177,11 @@ form{
 
 
 
-
+@media only screen and (max-width: 430px){
+    footer{
+         width: 115vw
+    }
+}
 
 
 
