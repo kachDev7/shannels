@@ -21,6 +21,39 @@ const Page = () => {
         ]
     }
 
+    const Heading = ({ text }) => {
+        return(
+            <div className="container d-flex jac">
+              <h3 className="fw-bold py-3 text-center myboda">{text}</h3>
+            </div>
+        )
+    }
+
+    const Comments = () => {
+        return(
+            <section>
+                <div className="text-center">
+                    <Heading text="Comments" />
+                </div>
+                <div className="container">
+                    {news.comments.map((comment) => {
+                        return(
+                            <div className='container d-flex px-3 comment-box'>
+                                <div className="comment-icon d-flex">
+                                    <i className="bi bi-person-circle h1 text-secondary"></i>
+                                    <p className="text-secondary mb-3 m-3">{comment.name}</p>
+                                </div>
+                                <div className="mx-1">
+                                    <p className="comment-text mx-5">{comment.comment}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </section>
+        )
+    }
+
 
     return(
         <div class="contain">
@@ -69,22 +102,23 @@ const Page = () => {
                     {/* COMMENTS SECTION */}
                     <section>
                         <div className="container">
-                            <div className="container d-flex jac">
-                                <h3 className="fw-bold py-3 text-center myboda">Let's talk about it!</h3>
-                            </div>
+                            
+                            <Heading text="Let's talk about it!" />
+                            
                             <div className="d-flex jac">
-                                <form className='form-width br-20 p-5'>
+                                <form className='form-width br-20 p-5 my-3'>
                                     <label htmlFor="" className='form-label'>Name</label>
                                     <input type="text" className='form-control mb-3 input-width' placeholder="Let's know your name"/>
                                     <label htmlFor="" className='form-label'>Comment</label>
-                                    <input type="text" className='form-control mb-3 input-width' placeholder='Your comment here...' />
-                                    <div className="text-center">
-                                        <button className="btn btn-primary p-3 mb-3  text-light">Comment</button>
+                                    <input type="text" className='form-control mb-3 input-width mb-4' placeholder='Your comment here...' />
+                                    <div className="text-center button">
+                                        <button className="btn btn-primary mb-3  text-light input-width">Comment</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </section>
+                    <Comments />
                 </div>
               </main>
               {/* Page Side Bar Divs */}

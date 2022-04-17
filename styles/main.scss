@@ -73,6 +73,10 @@ $link-color: red;
         max-width: 500px;
     }
 }
+.button button{
+    display: block;
+    width: 100%;
+}
 
 
 
@@ -161,6 +165,9 @@ form{
 }
 .form-width{
     min-width: 400px;
+}
+.comment-box{
+    flex-direction: column;
 }
 
                     
