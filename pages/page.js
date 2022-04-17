@@ -45,6 +45,7 @@ const Page = () => {
                                 </div>
                                 <div className="mx-1">
                                     <p className="comment-text mx-5">{comment.comment}</p>
+                                    <p className="comment-text mx-5 text-secondary">{"Date here..."}</p>
                                 </div>
                             </div>
                         )
