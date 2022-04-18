@@ -1,5 +1,75 @@
 import Image from 'next/image'
 
+const posts = [
+    {
+        title: "Buhari Govt Negotiating With Terrorists To Free Abducted Abuja-Kaduna Train Passengers",
+        body1: "Recall that bandits had in March 2022 attacked a Abuja-Kaduna abducting many passengers and killing many others including Dr Chinelo, which drew widespread condemnation. Families and friends of those abducted by the terrorists have called on government to do every possible to rescue their loved ones after the terrorists released a video threatening to kill all captives. Speaking to newsmen on Friday in Kaduna, Dr Jimoh Fatai, who has been designated as chairman of the group, said the Buhari government has told them that a channel of discussion with the terrorists has been established. ",
+        body2: "Fatai said: “After the Federal Executive Council (FEC) meeting on Wednesday, we heard from the Federal Government through the Minister of Information, Lai Mohammed that the government is in dialogue. That government is already discussing with the abductors of our relatives. “We are happy about it, we note it, we acknowledge it and we appreciate the efforts of the government in that regard. What we are now appealing for is that government should speed up the process.” ",
+        preview: "The Muhammadu Buhari-led Federal Government has started negotiating with bandit terrorists to secure the release of passengers abducted on a Abuja-Kaduna bound train.",
+        img1: "/images/buhari1.webp",
+        img2: "/images/buhari2.webp",
+        author: " Almadu Salim",
+        date: "April 15, 2022",
+        id: 1,
+        comments: [
+            {name: "Ike Chisom", comment: 'Hi! this is interesting.', id: 1},
+            {name: "Udo Haede", comment: 'We Thank God for you.', id: 2},
+            {name: "Seud Barnhn", comment: 'Gets me going always.', id: 3},
+            {name: "Iete Kabir", comment: 'What a news.', id: 4}
+        ]
+    },
+    {
+        title: "Buhari Govt Negotiating With Terrorists To Free Abducted Abuja-Kaduna Train Passengers",
+        body1: "Recall that bandits had in March 2022 attacked a Abuja-Kaduna abducting many passengers and killing many others including Dr Chinelo, which drew widespread condemnation. Families and friends of those abducted by the terrorists have called on government to do every possible to rescue their loved ones after the terrorists released a video threatening to kill all captives. Speaking to newsmen on Friday in Kaduna, Dr Jimoh Fatai, who has been designated as chairman of the group, said the Buhari government has told them that a channel of discussion with the terrorists has been established. ",
+        body2: "Fatai said: “After the Federal Executive Council (FEC) meeting on Wednesday, we heard from the Federal Government through the Minister of Information, Lai Mohammed that the government is in dialogue. That government is already discussing with the abductors of our relatives. “We are happy about it, we note it, we acknowledge it and we appreciate the efforts of the government in that regard. What we are now appealing for is that government should speed up the process.” ",
+        preview: "The Muhammadu Buhari-led Federal Government has started negotiating with bandit terrorists to secure the release of passengers abducted on a Abuja-Kaduna bound train.",
+        img1: "/images/buhari1.webp",
+        img2: "/images/buhari2.webp",
+        author: " Almadu Salim",
+        date: "April 15, 2022",
+        id: 2,
+        comments: [
+            {name: "Ike Chisom", comment: 'Hi! this is interesting.', id: 1},
+            {name: "Udo Haede", comment: 'We Thank God for you.', id: 2},
+            {name: "Seud Barnhn", comment: 'Gets me going always.', id: 3},
+            {name: "Iete Kabir", comment: 'What a news.', id: 4}
+        ]
+    },
+    {
+        title: "Buhari Govt Negotiating With Terrorists To Free Abducted Abuja-Kaduna Train Passengers",
+        body1: "Recall that bandits had in March 2022 attacked a Abuja-Kaduna abducting many passengers and killing many others including Dr Chinelo, which drew widespread condemnation. Families and friends of those abducted by the terrorists have called on government to do every possible to rescue their loved ones after the terrorists released a video threatening to kill all captives. Speaking to newsmen on Friday in Kaduna, Dr Jimoh Fatai, who has been designated as chairman of the group, said the Buhari government has told them that a channel of discussion with the terrorists has been established. ",
+        body2: "Fatai said: “After the Federal Executive Council (FEC) meeting on Wednesday, we heard from the Federal Government through the Minister of Information, Lai Mohammed that the government is in dialogue. That government is already discussing with the abductors of our relatives. “We are happy about it, we note it, we acknowledge it and we appreciate the efforts of the government in that regard. What we are now appealing for is that government should speed up the process.” ",
+        preview: "The Muhammadu Buhari-led Federal Government has started negotiating with bandit terrorists to secure the release of passengers abducted on a Abuja-Kaduna bound train.",
+        img1: "/images/buhari1.webp",
+        img2: "/images/buhari2.webp",
+        author: " Almadu Salim",
+        date: "April 15, 2022",
+        id: 3,
+        comments: [
+            {name: "Ike Chisom", comment: 'Hi! this is interesting.', id: 1},
+            {name: "Udo Haede", comment: 'We Thank God for you.', id: 2},
+            {name: "Seud Barnhn", comment: 'Gets me going always.', id: 3},
+            {name: "Iete Kabir", comment: 'What a news.', id: 4}
+        ]
+    },
+    {
+        title: "Buhari Govt Negotiating With Terrorists To Free Abducted Abuja-Kaduna Train Passengers",
+        body1: "Recall that bandits had in March 2022 attacked a Abuja-Kaduna abducting many passengers and killing many others including Dr Chinelo, which drew widespread condemnation. Families and friends of those abducted by the terrorists have called on government to do every possible to rescue their loved ones after the terrorists released a video threatening to kill all captives. Speaking to newsmen on Friday in Kaduna, Dr Jimoh Fatai, who has been designated as chairman of the group, said the Buhari government has told them that a channel of discussion with the terrorists has been established. ",
+        body2: "Fatai said: “After the Federal Executive Council (FEC) meeting on Wednesday, we heard from the Federal Government through the Minister of Information, Lai Mohammed that the government is in dialogue. That government is already discussing with the abductors of our relatives. “We are happy about it, we note it, we acknowledge it and we appreciate the efforts of the government in that regard. What we are now appealing for is that government should speed up the process.” ",
+        preview: "The Muhammadu Buhari-led Federal Government has started negotiating with bandit terrorists to secure the release of passengers abducted on a Abuja-Kaduna bound train.",
+        img1: "/images/buhari1.webp",
+        img2: "/images/buhari2.webp",
+        author: " Almadu Salim",
+        date: "April 15, 2022",
+        id: 4,
+        comments: [
+            {name: "Ike Chisom", comment: 'Hi! this is interesting.', id: 1},
+            {name: "Udo Haede", comment: 'We Thank God for you.', id: 2},
+            {name: "Seud Barnhn", comment: 'Gets me going always.', id: 3},
+            {name: "Iete Kabir", comment: 'What a news.', id: 4}
+        ]
+    }
+]
 
 const Page = () => {
 
@@ -46,6 +116,31 @@ const Page = () => {
                                 <div className="mx-1">
                                     <p className="comment-text mx-5">{comment.comment}</p>
                                     <p className="comment-text mx-5 text-secondary">{"Date here..."}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </section>
+        )
+    }
+
+    const MoreNews = () => {
+        return(
+            <section className='br-20 round-boda'>
+                <Heading text="People Also Like" />
+                <div className="my-5">
+                    {posts.map((post) => {
+                        return(
+                            <div className="container">
+                                <div>
+                                    <Image src={post.img1} height={100} width={150} />
+                                </div>
+                                <div>
+                                    <p className="fw-bold">{post.title}</p>
+                                    <div>
+                                        <p>Author: {post.author} Date: {post.date}</p>
+                                    </div>
                                 </div>
                             </div>
                         )
@@ -107,7 +202,7 @@ const Page = () => {
                             <Heading text="Let's talk about it!" />
                             
                             <div className="d-flex jac">
-                                <form className='form-width br-20 p-5 my-3'>
+                                <form className='form-width br-20 p-5 my-3 round-boda'>
                                     <label htmlFor="" className='form-label'>Name</label>
                                     <input type="text" className='form-control mb-3 input-width' placeholder="Let's know your name"/>
                                     <label htmlFor="" className='form-label'>Comment</label>
@@ -125,7 +220,7 @@ const Page = () => {
               {/* Page Side Bar Divs */}
               <div id="sidebar" class="boda3">Sidebar
                   <div class="p-3 m-3 lead boda1">
-
+                    <MoreNews />
                   </div>
                   <div class="p-3 m-3 lead boda1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed commodi consequuntur quidem rem earum, fugiat dolorum eligendi veritatis accusamus doloribus quaerat quos ipsum in? Neque quam sint error nam dolorem suscipit, ex quos aperiam, modi nisi nihil delectus praesentium ducimus. Pariatur voluptatibus error reprehenderit quia in nemo modi, ut illum!</div>
                   <div class="p-3 m-3 lead boda1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed commodi consequuntur quidem rem earum, fugiat dolorum eligendi veritatis accusamus doloribus quaerat quos ipsum in? Neque quam sint error nam dolorem suscipit, ex quos aperiam, modi nisi nihil delectus praesentium ducimus. Pariatur voluptatibus error reprehenderit quia in nemo modi, ut illum!</div>
