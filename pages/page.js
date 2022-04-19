@@ -127,20 +127,18 @@ const Page = () => {
 
     const MoreNews = () => {
         return(
-            <section className='br-20 round-boda'>
+            <section className='br-20 round-boda container'>
                 <Heading text="People Also Like" />
                 <div className="my-5">
                     {posts.map((post) => {
                         return(
-                            <div className="container">
-                                <div>
+                            <div className="m-3  d-flex">
+                                <div className=''>
                                     <Image src={post.img1} height={100} width={150} />
                                 </div>
-                                <div>
-                                    <p className="fw-bold">{post.title}</p>
-                                    <div>
-                                        <p>Author: {post.author} Date: {post.date}</p>
-                                    </div>
+                                <div className='mx-3 d-flex jac column'>
+                                   <div> <p className="fw-bold font-small">{post.title}</p>
+                                    <p className='font-small'>Author: {post.author} Date: {post.date}</p></div>
                                 </div>
                             </div>
                         )
@@ -150,86 +148,98 @@ const Page = () => {
         )
     }
 
+    const Share = () => {
+        return(
+            <div className="container">
+                <Heading text="Follow us on" />
+                <div className="container text-center mb-3 d-flex jac">
+                    <div className='round-boda br-20 m-3 p-3'><i className='bi bi-facebook h1'></i></div>
+                    <div className='round-boda br-20 m-3 p-3'><i className='bi bi-instagram h1'></i></div>
+                    <div className='round-boda br-20 m-3 p-3'><i className='bi bi-twitter h1'></i></div>
+                </div>
+            </div>
+        )
+    }
+
 
     return(
         <div class="contain">
-            <section class="holder">
+            <div className="holder">
               {/* Page Details Main */}
-              <main class="boda2">
-                <div className="main">
-                    <section className='py-3 cat'>
-                        <div className="px-md-3 w-25 bg-primary jac catDiv">
-                            <p className="fw-bold mt-3 text-light text-center">Category</p>
-                        </div>
-                    </section>
-                    <section>
+                <main className="">
+                    <div className="main">
+                        <section className='py-3 cat'>
+                            <div className="px-md-3 w-25 bg-primary jac catDiv">
+                                <p className="fw-bold mt-3 text-light text-center">Category</p>
+                            </div>
+                        </section>
+                        <section>
+                            <div className="container">
+                                {/* Title */}
+                                <div className="text-center">
+                                    <h1>{news.title}</h1>
+                                </div>
+                                {/* Info */}
+                                <div className='d-flex jaa'>
+                                    <p><span className="fw-bold">Author: </span> {news.author}</p> 
+                                    <p><span className="fw-bold">Date: </span> {news.date}</p> 
+                                </div>
+                                {/* Image 0ne */}
+                                <div className='d-flex jac my-3'>
+                                    <Image className='br-10' src={news.img1} height={400} width={700} />
+                                </div>
+                                {/* Preview */}
+                                <div>
+                                    <h5 className="fw-bold">{news.preview}</h5>
+                                </div>
+                                {/* Body 0ne */}
+                                <div className='p-3'>
+                                    <p className="lead">{news.body1}</p>
+                                </div>
+                                {/* Image two */}
+                                <div className='d-flex jac my-4'>
+                                    <Image className='br-10' src={news.img2} height={400} width={700} />
+                                </div>
+                                {/* Body Two */}
+                                <div className='p-3'>
+                                    <p className="lead">{news.body2}</p>
+                                </div>
+                            </div>
+                        </section>
+                        {/* COMMENTS SECTION */}
+                        {/* <section>
+                            <div className="container">
+                                
+                                <Heading text="Let's talk about it!" />
+                                
+                                <div className="d-flex jac">
+                                    <form className='form-width br-20 p-5 my-3 round-boda'>
+                                        <label htmlFor="" className='form-label'>Name</label>
+                                        <input type="text" className='form-control mb-3 input-width' placeholder="Let's know your name"/>
+                                        <label htmlFor="" className='form-label'>Comment</label>
+                                        <input type="text" className='form-control mb-3 input-width mb-4' placeholder='Your comment here...' />
+                                        <div className="text-center button">
+                                            <button className="btn btn-primary mb-3  text-light input-width">Comment</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                        <Comments /> */}
+                        <section>
+                            <Share />
+                        </section>
+                    </div>
+                </main>
+                {/* Page Side Bar Divs */}
+                <aside id="sidebar" className="">
+                    <div className="aside-ruler">
                         <div className="container">
-                            {/* Title */}
-                            <div className="text-center">
-                                <h1>{news.title}</h1>
-                            </div>
-                            {/* Info */}
-                            <div className='d-flex jaa'>
-                                <p><span className="fw-bold">Author: </span> {news.author}</p> 
-                                <p><span className="fw-bold">Date: </span> {news.date}</p> 
-                            </div>
-                            {/* Image 0ne */}
-                            <div className='d-flex jac my-3'>
-                                <Image className='br-10' src={news.img1} height={400} width={700} />
-                            </div>
-                            {/* Preview */}
-                            <div>
-                                <h5 className="fw-bold">{news.preview}</h5>
-                            </div>
-                            {/* Body 0ne */}
-                            <div className='p-3'>
-                                <p className="lead">{news.body1}</p>
-                            </div>
-                            {/* Image two */}
-                            <div className='d-flex jac my-4'>
-                                <Image className='br-10' src={news.img2} height={400} width={700} />
-                            </div>
-                            {/* Body Two */}
-                            <div className='p-3'>
-                                <p className="lead">{news.body2}</p>
-                            </div>
+                            <MoreNews />
                         </div>
-                    </section>
-                    {/* COMMENTS SECTION */}
-                    <section>
-                        <div className="container">
-                            
-                            <Heading text="Let's talk about it!" />
-                            
-                            <div className="d-flex jac">
-                                <form className='form-width br-20 p-5 my-3 round-boda'>
-                                    <label htmlFor="" className='form-label'>Name</label>
-                                    <input type="text" className='form-control mb-3 input-width' placeholder="Let's know your name"/>
-                                    <label htmlFor="" className='form-label'>Comment</label>
-                                    <input type="text" className='form-control mb-3 input-width mb-4' placeholder='Your comment here...' />
-                                    <div className="text-center button">
-                                        <button className="btn btn-primary mb-3  text-light input-width">Comment</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </section>
-                    <Comments />
-                </div>
-              </main>
-              {/* Page Side Bar Divs */}
-              <div id="sidebar" class="boda3">Sidebar
-                  <div class="p-3 m-3 lead boda1">
-                    <MoreNews />
-                  </div>
-                  <div class="p-3 m-3 lead boda1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed commodi consequuntur quidem rem earum, fugiat dolorum eligendi veritatis accusamus doloribus quaerat quos ipsum in? Neque quam sint error nam dolorem suscipit, ex quos aperiam, modi nisi nihil delectus praesentium ducimus. Pariatur voluptatibus error reprehenderit quia in nemo modi, ut illum!</div>
-                  <div class="p-3 m-3 lead boda1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed commodi consequuntur quidem rem earum, fugiat dolorum eligendi veritatis accusamus doloribus quaerat quos ipsum in? Neque quam sint error nam dolorem suscipit, ex quos aperiam, modi nisi nihil delectus praesentium ducimus. Pariatur voluptatibus error reprehenderit quia in nemo modi, ut illum!</div>
-                  <div class="p-3 m-3 lead boda1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed commodi consequuntur quidem rem earum, fugiat dolorum eligendi veritatis accusamus doloribus quaerat quos ipsum in? Neque quam sint error nam dolorem suscipit, ex quos aperiam, modi nisi nihil delectus praesentium ducimus. Pariatur voluptatibus error reprehenderit quia in nemo modi, ut illum!</div>
-              </div>
-              {/* Page Contents Divs */}
-              <div id="content1" class="boda4">Content 1</div>
-              <div id="content2" class="boda6">Content 2</div>
-           </section>
+                     </div>   
+                </aside>
+           </div>
         </div>
     )
 }
