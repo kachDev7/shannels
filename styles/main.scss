@@ -206,17 +206,38 @@ main{
         height: auto;
         border: none;
     }
+    #more-lg{
+        display: block;
+        
+    }
+}
+.contact-contain{
+    justify-content: center;
+    align-items: flex-start;
 }
 
-@media only screen and(min-width: 760px){
+@media only screen and(min-width: 768px){
     #more-lg{
         display: grid;
     }
     #more3-lg{
         font-size: larger;
     }
+
+    // .contact-grid{
+    // }
 }
 
+//  Contact page and About Page
+
+.about, .contact{
+    min-height: 100vh;
+}
+
+.contact-box{
+    border-bottom: 1px solid grey;
+    width: 100%;
+}
 
 
 
