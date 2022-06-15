@@ -10,19 +10,15 @@ const Post = () => {
     const [image1, setImage1] = useState("");
     const [image2, setImage2] = useState("");
     const [author, setAuthor] = useState("");
-    const [date, setDate] = useState("");
     const [category, setCategory] = useState("");
-    const [id, setId] = useState("");
-
-    const userRef = collection(dbase, "bloog")
     
     const handlePost = async (event) => {
         event.preventDefault();
-        console.log(title, id, image1, date);
+        // console.log(title, id, image1, date);
 
         // news post request: MongoDb
         try {
-            fetch('http://localhost:8081/post', {
+            fetch('https://sha-api.vercel.app/post', {
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify({
@@ -39,18 +35,6 @@ const Post = () => {
         } catch (err) {
             return({message: err})
         }
-
-        // news post request: Firebase
-    //     await addDoc(userRef, {
-            // title: title,
-            // body1: body1,
-            // body2: body2,
-            // preview: preview,
-            // image1: image1,
-            // image2: image2,
-            // author: author,
-            // category: category
-    //     })
      }
 
     return (
