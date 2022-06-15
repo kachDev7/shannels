@@ -24,7 +24,7 @@ export const getStaticProps = async (context) => {
     const id = context.params.id;
 
     // Test with Json
-    const res = await fetch('https://sha-api.vercel.app/post' + id);
+    const res = await fetch('https://sha-api.vercel.app/post/' + id);
     const datum = await res.json();
     console.log(datum);
 
@@ -47,35 +47,6 @@ export const getStaticProps = async (context) => {
 
 const Page = ({ posts, post }) => {
     
-    // const [posts, setPosts] = useState([]);
-
-
-    // useEffect(() => {
-    //     const getPosts = async (context) => {
-    //         const id = context.params.id;
-    //         const res = await getDocs(userRef);
-    //         setPosts(res.docs.map((e) => ({...e.data(), id: e.id})));
-    //     }
-    //     getPosts(context);
-    // })
-    // const news =
-    // {
-    //     title: "Buhari Govt Negotiating With Terrorists To Free Abducted Abuja-Kaduna Train Passengers",
-    //     body1: "Recall that bandits had in March 2022 attacked a Abuja-Kaduna abducting many passengers and killing many others including Dr Chinelo, which drew widespread condemnation. Families and friends of those abducted by the terrorists have called on government to do every possible to rescue their loved ones after the terrorists released a video threatening to kill all captives. Speaking to newsmen on Friday in Kaduna, Dr Jimoh Fatai, who has been designated as chairman of the group, said the Buhari government has told them that a channel of discussion with the terrorists has been established. ",
-    //     body2: "Fatai said: “After the Federal Executive Council (FEC) meeting on Wednesday, we heard from the Federal Government through the Minister of Information, Lai Mohammed that the government is in dialogue. That government is already discussing with the abductors of our relatives. “We are happy about it, we note it, we acknowledge it and we appreciate the efforts of the government in that regard. What we are now appealing for is that government should speed up the process.” ",
-    //     preview: "The Muhammadu Buhari-led Federal Government has started negotiating with bandit terrorists to secure the release of passengers abducted on a Abuja-Kaduna bound train.",
-    //     img1: "/images/buhari1.webp",
-    //     img2: "/images/buhari2.webp",
-    //     author: "Almadu Salim",
-    //     date: "April 15, 2022",
-    //     comments: [
-    //         {name: "Ike Chisom", comment: 'Hi! this is interesting.', id: 1},
-    //         {name: "Udo Haede", comment: 'We Thank God for you.', id: 2},
-    //         {name: "Seud Barnhn", comment: 'Gets me going always.', id: 3},
-    //         {name: "Iete Kabir", comment: 'What a news.', id: 4}
-    //     ]
-    // }
-
     const Heading = ({ text }) => {
         return(
             <div className="container d-flex jac">

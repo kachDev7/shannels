@@ -1,14 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-// import { collection, getDocs} from 'firebase/firestore'
-// import { dbase} from './firebase-config'
 import Heading from '../components/heading'
 import { useEffect, useState } from 'react'
 
 
 export const getStaticProps = async () => {
-    const res = await fetch('https://sha-api.vercel.app');
+    const res = await fetch('https://sha-api.vercel.app/post');
     const posts = await res.json();
     console.log(posts);
 
@@ -21,18 +19,6 @@ export const getStaticProps = async () => {
 
 
 export default function Home({ posts }) {
-
-    // const userRef = collection(dbase, "bloog");
-    // const [posts, setPosts] = useState([]);
-
-
-    // useEffect(() => {
-    //     const getPosts = async () => {
-    //         const res = await getDocs(userRef);
-    //         setPosts(res.docs.map((e) => ({...e.data(), id: e.id})));
-    //     }
-    //     getPosts();
-    // })
 
 const NewsLarge = ({ post }) => {
     return (
