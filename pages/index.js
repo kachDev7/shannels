@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 
 
 export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:8081/post');
+    const res = await fetch('https://sha-api.vercel.app');
     const posts = await res.json();
     console.log(posts);
 
