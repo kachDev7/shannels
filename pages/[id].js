@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Share from '../components/share'
 
 export const getStaticPaths = async() =>{
-    const res = await fetch('http://localhost:8081/post');
+    const res = await fetch('https://sha-api.vercel.app/post');
     const data =  await res.json();
 
     const paths = data.map((post) => {
@@ -24,11 +24,11 @@ export const getStaticProps = async (context) => {
     const id = context.params.id;
 
     // Test with Json
-    const res = await fetch('http://localhost:8081/post/' + id);
+    const res = await fetch('https://sha-api.vercel.app/post' + id);
     const datum = await res.json();
     console.log(datum);
 
-    const resAll = await fetch('http://localhost:8081/post');
+    const resAll = await fetch('https://sha-api.vercel.app/post');
     const data =  await resAll.json();
     
 
