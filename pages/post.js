@@ -1,6 +1,5 @@
 import { useState } from "react";
-import {collection, addDoc} from 'firebase/firestore'
-import { dbase } from './firebase-config'
+
 
 const Post = () => {
 
