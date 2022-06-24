@@ -1,11 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// import {collection, getDocs} from 'firebase/firestore'
-// import { dbase } from './firebase-config'
 import Share from '../components/share'
 
 export const getStaticPaths = async() =>{
-    const res = await fetch('https://sha-api.vercel.app/post');
+    const res = await fetch(process.env.URL);
     const data =  await res.json();
 
     const paths = data.map((post) => {
@@ -24,11 +22,10 @@ export const getStaticProps = async (context) => {
     const id = context.params.id;
 
     // Test with Json
-    const res = await fetch('https://sha-api.vercel.app/post/' + id);
+    const res = await fetch(process.env.URL + "/" + id);
     const datum = await res.json();
-    console.log(datum);
 
-    const resAll = await fetch('https://sha-api.vercel.app/post');
+    const resAll = await fetch(process.env.URL);
     const data =  await resAll.json();
     
 
@@ -85,14 +82,14 @@ const Page = ({ posts, post }) => {
 
         
         return (
-            <Link href={'/' + post.id}>
-                <div className="my-3 my-sm-5 d-grid" id='more'>
+            <Link href={'/' + post._id}>
+                <div className="my-3 my-sm-5 d-grid" id='more' key={post._id}>
                     <div className='' id='more2'>
                         <Image src={post.image1} height={100} width={150} />
                     </div>
                     <div className='mx-1 d-flex jac column' id='more3'>
                         <p className="fw-bold font-small">{post.title} <br />
-                    <small className='text-secondary'>Date: {post.date}</small></p>
+                    <small className='text-secondary'>Date: {formatDate(new Date(post.date).toString())}</small></p>
                     </div>
                 </div>
             </Link>
@@ -127,6 +124,15 @@ const Page = ({ posts, post }) => {
         )
     }
 
+    // format Date of post
+    const formatDate = (postDate) => {
+        let formattedDate = ""
+        for(let i=0; i < 16; i++){
+            formattedDate += postDate[i]
+        }
+        return formattedDate
+    }
+
 
     return(
         <div class="contain">
@@ -146,7 +152,7 @@ const Page = ({ posts, post }) => {
                                 {/* Info */}
                                 <div className='d-flex jaa'>
                                     <p><span className="fw-bold">Author: </span> {post.author}</p> 
-                                    <p><span className="fw-bold">Date: </span> {post.date}</p> 
+                                    <p><span className="fw-bold">Date: </span> {formatDate(new Date(post.date).toString())}</p> 
                                 </div>
                                 {/* Image 0ne */}
                                 <div className='d-flex jac my-3'>

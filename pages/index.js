@@ -2,13 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Heading from '../components/heading'
-import { useEffect, useState } from 'react'
+
+
+
 
 
 export const getStaticProps = async () => {
-    const res = await fetch('https://sha-api.vercel.app/post');
+    const url = process.env.URL
+    const res = await fetch(url);
     const posts = await res.json();
-    console.log(posts);
 
     return{
         props: {
@@ -20,15 +22,16 @@ export const getStaticProps = async () => {
 
 export default function Home({ posts }) {
 
+
 const NewsLarge = ({ post }) => {
     return (
     <div className="my-3 my-sm-5" id='more-lg'>
         <div className='' id='more2-lg'>
-            <Image src={post.image1.toString()} height={200} width={350} />
+            <Image src={post.image1} height={200} width={350} />
         </div>
         <div className='mx-md-3 d-flex jac column' id='more3-lg'>
             <p className="fw-bold">{post.title} <br />
-           <small className='text-secondary'>Date: {post.date}</small></p>
+           <small className='text-secondary'>Date: {formatDate(new Date(post.date).toString())}</small></p>
            <p>{post.preview}..<Link href={'/' + post._id}><a className='text-primary'>Read more</a></Link></p>
         </div>
     </div>
@@ -81,17 +84,28 @@ const Share = () => {
         </div>
     )
 }
+
+// format Date of post
+const formatDate = (postDate) => {
+    let formattedDate = ""
+    for(let i=0; i < 16; i++){
+        formattedDate += postDate[i]
+    }
+    return formattedDate
+}
     return (
-        <div class="contain">
-            <section class="holder">
-                <main class="boda2">
+        <div className="contain">
+            <section className="holder">
+                <main className="">
                     <Block posts={posts} />
                     <Share />
                     <p>{posts.map((e) => {e.title})}</p>
                 </main>
-                <aside id="sidebar" class="boda3">Sidebar
-                    <div class="p-3 m-3 leadnpm ">
-                        <Card />
+                <aside id="sidebar" className="">
+                    <div className="aside-ruler">
+                        <div className="p-3 m-3 leadnpm ">
+                            <Card />
+                        </div>
                     </div>
                 </aside>
            </section>
