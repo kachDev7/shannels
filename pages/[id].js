@@ -82,7 +82,7 @@ const Page = ({ posts, post }) => {
 
         
         return (
-            <Link href={'/' + post._id}>
+            <Link href={"/" + post._id}>
                 <div className="my-3 my-sm-5 d-grid" id='more' key={post._id}>
                     <div className='' id='more2'>
                         <Image src={post.image1} height={100} width={150} alt="Image" />
