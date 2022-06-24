@@ -82,16 +82,18 @@ const Page = ({ posts, post }) => {
 
         
         return (
-            <Link href={"/" + post._id}>
-                <div className="my-3 my-sm-5 d-grid" id='more' key={post._id}>
-                    <div className='' id='more2'>
-                        <Image src={post.image1} height={100} width={150} alt="Image" />
+            <Link href={'/' + post._id}>
+                <a>
+                    <div className="my-3 my-sm-5 d-grid" id='more' key={post._id}>
+                        <div className='' id='more2'>
+                            <Image src={post.image1} height={100} width={150} alt="Image" />
+                        </div>
+                        <div className='mx-1 d-flex jac column' id='more3'>
+                            <p className="fw-bold font-small">{post.title} <br />
+                        <small className='text-secondary'>Date: {formatDate(new Date(post.date).toString())}</small></p>
+                        </div>
                     </div>
-                    <div className='mx-1 d-flex jac column' id='more3'>
-                        <p className="fw-bold font-small">{post.title} <br />
-                    <small className='text-secondary'>Date: {formatDate(new Date(post.date).toString())}</small></p>
-                    </div>
-                </div>
+                </a>
             </Link>
         )
     }
