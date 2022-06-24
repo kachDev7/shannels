@@ -27,7 +27,7 @@ const NewsLarge = ({ post }) => {
     return (
     <div className="my-3 my-sm-5" id='more-lg'>
         <div className='' id='more2-lg'>
-            <Image src={post.image1} height={200} width={350} />
+            <Image src={post.image1} height={200} width={350} alt="Image" />
         </div>
         <div className='mx-md-3 d-flex jac column' id='more3-lg'>
             <p className="fw-bold">{post.title} <br />

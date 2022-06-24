@@ -85,7 +85,7 @@ const Page = ({ posts, post }) => {
             <Link href={'/' + post._id}>
                 <div className="my-3 my-sm-5 d-grid" id='more' key={post._id}>
                     <div className='' id='more2'>
-                        <Image src={post.image1} height={100} width={150} />
+                        <Image src={post.image1} height={100} width={150} alt="Image" />
                     </div>
                     <div className='mx-1 d-flex jac column' id='more3'>
                         <p className="fw-bold font-small">{post.title} <br />
@@ -135,7 +135,7 @@ const Page = ({ posts, post }) => {
 
 
     return(
-        <div class="contain">
+        <div className="contain">
             <div className="holder">
               {/* Page Details Main */}
                 <main className="">
@@ -156,7 +156,7 @@ const Page = ({ posts, post }) => {
                                 </div>
                                 {/* Image 0ne */}
                                 <div className='d-flex jac my-3'>
-                                    <Image className='br-10' src={post.image1} height={400} width={700} />
+                                    <Image className='br-10' src={post.image1} height={400} width={700} alt="Image" />
                                 </div>
                                 {/* Preview */}
                                 <div>
@@ -168,7 +168,7 @@ const Page = ({ posts, post }) => {
                                 </div>
                                 {/* Image two */}
                                 <div className='d-flex jac my-4'>
-                                    <Image className='br-10' src={post.image2} height={400} width={700} />
+                                    <Image className='br-10' src={post.image2} height={400} width={700} alt="Image" />
                                 </div>
                                 {/* Body Two */}
                                 <div className='p-3'>
@@ -207,7 +207,7 @@ const Page = ({ posts, post }) => {
                         <div className="container my-3">
                             <MoreNews posts={posts} post={post} />
                         </div>
-                     </div>   
+                    </div>   
                 </aside>
            </div>
         </div>

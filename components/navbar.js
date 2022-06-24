@@ -24,16 +24,16 @@ const Navbar = () => {
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-icon">
-                        <Link href='#'><a className="nav-link"><i class="bi bi-facebook"></i></a></Link>   
+                        <Link href='#'><a className="nav-link"><i className="bi bi-facebook"></i></a></Link>   
                     </li>
                     <li className="nav-icon mx-3">
-                        <Link href='#'><a className="nav-link"><i class="bi bi-whatsapp"></i></a></Link>
+                        <Link href='#'><a className="nav-link"><i className="bi bi-whatsapp"></i></a></Link>
                     </li>
                     <li className="nav-icon">
-                        <Link href='#'><a className="nav-link"><i class="bi bi-linkedin"></i></a></Link>
+                        <Link href='#'><a className="nav-link"><i className="bi bi-linkedin"></i></a></Link>
                     </li>
                     <li className="nav-icon mx-3">
-                        <Link href='#'><a className="nav-link"><i class="bi bi-instagram"></i></a></Link>
+                        <Link href='#'><a className="nav-link"><i className="bi bi-instagram"></i></a></Link>
                     </li>
                 </ul>
             </div>
