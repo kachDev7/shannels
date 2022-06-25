@@ -37,7 +37,7 @@ const Post = () => {
 
     return (
         <div className="d-flex jac">
-            <form className='form-width br-20 p-5 my-3 round-boda' action="http://localhost:8081/post" method="POST" encType="multipart/form-data">
+            <form className='form-width br-20 p-5 my-3 round-boda' action={process.env.URL} method="POST" encType="multipart/form-data">
                 <label htmlFor="" className='form-label'>Title</label>
                 <input type="text" name="title" onChange={(e) => { setTitle(e.target.value)}} className='form-control mb-3 input-width'/>
 
