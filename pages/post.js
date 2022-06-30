@@ -42,7 +42,7 @@ const Post = () => {
             console.log(imageObjResponses)
             // Make a post request to api with set values
             fetch(process.env.URL, {
-                    method: 'POST',
+                    method: "POST",
                     headers: {"Content-Type" : "application/json"},
                     body: JSON.stringify({
                         "title": title,
@@ -60,8 +60,9 @@ const Post = () => {
                         alert(" Sorry! Blog Post not successful.");
                     }else{
                         alert("Blog Posted Successful!");
+                        router.push('/');
                     }
-                    router.push('/');
+                    
                 })
         })
     }
