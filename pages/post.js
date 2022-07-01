@@ -42,7 +42,7 @@ const Post = () => {
             console.log(imageObjResponses)
             // Make a post request to api with set values
             const url = process.env.URL;
-            fetch(url, {
+            fetch("https://bloc-eh-81008.herokuapp.com/post", {
                     method: 'POST',
                     headers: {"Content-Type" : "application/json"},
                     body: JSON.stringify({
