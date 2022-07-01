@@ -41,7 +41,8 @@ const Post = () => {
         .then(imageObjResponses => {
             console.log(imageObjResponses)
             // Make a post request to api with set values
-            fetch(process.env.URL, {
+            const url = process.env.URL;
+            fetch(url, {
                     method: 'POST',
                     headers: {"Content-Type" : "application/json"},
                     body: JSON.stringify({
