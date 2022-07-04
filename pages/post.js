@@ -147,7 +147,7 @@ const Post = () => {
                 </div>
                 <div className="modal-footer">
                    {failBtn && <button type="button" className="btn btn-secondary" onClick={handlePost}>Retry</button>}
-                    {successBtn && <button type="button" className="btn btn-primary text-light" onClick={()=> router.push('/')}>Home</button>}
+                    {successBtn && <button type="button" className="btn btn-primary text-light" data-bs-dismiss="modal" onClick={()=> router.push('/')}>Home</button>}
                 </div>
                 </div>
             </div>
