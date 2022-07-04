@@ -38,6 +38,7 @@ const Post = () => {
         // image object from cloudinary
         if(!data.ok){
             alert("Error Posting: Check Image")
+            setIsLoading(false)
         }else{
             return data.json()
         }
@@ -46,8 +47,8 @@ const Post = () => {
     // Handle Blog Post Upload
     const handlePost = async (event) => {
         event.preventDefault();
-        console.log("Started Posting...")
-        console.log("1. saving images...")
+        // console.log("Started Posting...")
+        // console.log("1. saving images...")
         setIsLoading(true)
         setFailBtn(false)
         setFailInfo(false)
@@ -58,8 +59,8 @@ const Post = () => {
         Promise.all([postImage(image1), postImage(image2)])
         // then return response object of the saved image: Array
         .then(imageObjResponses => {
-        console.log("> images saved successfully...")
-        console.log(imageObjResponses)
+        // console.log("> images saved successfully...")
+        // console.log(imageObjResponses)
         // Make a post request to api with set values
         fetch("https://bloc-eh-81008.herokuapp.com/post", {
                 method: 'POST',
