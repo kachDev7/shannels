@@ -36,7 +36,11 @@ const Post = () => {
         });
 
         // image object from cloudinary
-        return data.json()
+        if(!data.ok){
+            alert("Error Posting: Check Image")
+        }else{
+            return data.json()
+        }
     }
     
     // Handle Blog Post Upload
@@ -54,37 +58,38 @@ const Post = () => {
         Promise.all([postImage(image1), postImage(image2)])
         // then return response object of the saved image: Array
         .then(imageObjResponses => {
-            console.log("> images saved successfully...")
-            console.log(imageObjResponses)
-            // Make a post request to api with set values
-            fetch("https://bloc-eh-81008.herokuapp.com/post", {
-                    method: 'POST',
-                    headers: {"Content-Type" : "application/json"},
-                    body: JSON.stringify({
-                        "title": title,
-                        "body1": body1,
-                        "body2": body2,
-                        "preview": preview,
-                        // urls to the images are saved in the DB 
-                        "image_one": imageObjResponses[0].secure_url,
-                        "image_two": imageObjResponses[1].secure_url,
-                        "author": author,
-                        "category": category
-                    })
-                }).then(res => {
-                    setIsLoading(false);
-                    if(!res.ok){
-                        setFailInfo(true)
-                        setFailBtn(true)
-                        console.log("Failed!");                        
-                    }else{
-                        console.log("Successful!")
-                        setSuccessInfo(true)
-                        setSuccessBtn(true)
-                        // router.push('/');
-                    }
-                    
+        console.log("> images saved successfully...")
+        console.log(imageObjResponses)
+        // Make a post request to api with set values
+        fetch("https://bloc-eh-81008.herokuapp.com/post", {
+                method: 'POST',
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify({
+                    "title": title,
+                    "body1": body1,
+                    "body2": body2,
+                    "preview": preview,
+                    // urls to the images are saved in the DB 
+                    "image_one": imageObjResponses[0].secure_url,
+                    "image_two": imageObjResponses[1].secure_url,
+                    "author": author,
+                    "category": category
                 })
+            
+            }).then(res => {
+                setIsLoading(false);
+                if(!res.ok){
+                    setFailInfo(true)
+                    setFailBtn(true)
+                    console.log("Failed!");                        
+                }else{
+                    console.log("Successful!")
+                    setSuccessInfo(true)
+                    setSuccessBtn(true)
+                    // router.push('/');
+                }
+                
+            })
         })
     }
 
