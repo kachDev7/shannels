@@ -123,26 +123,26 @@ const Post = () => {
             {/* Modal */}
 
             
-            {/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Launch demo modal
             </button> */}
 
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-secondary" id="exampleModalLabel">Please Wait</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title text-secondary" id="exampleModalLabel">Please Wait</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                     {isLoading && <Loading/>}
                     {failInfo && <h1 className="text-center text-danger">Failed!</h1>}
                     {successInfo && <h1 className="text-center text-primary">Successful!</h1>}
                 </div>
-                <div class="modal-footer">
-                   {failBtn && <button type="button" class="btn btn-secondary" onClick={handlePost}>Retry</button>}
-                    {successBtn && <button type="button" class="btn btn-primary text-light" onClick={()=> router.push('/')}>Home</button>}
+                <div className="modal-footer">
+                   {failBtn && <button type="button" className="btn btn-secondary" onClick={handlePost}>Retry</button>}
+                    {successBtn && <button type="button" className="btn btn-primary text-light" onClick={()=> router.push('/')}>Home</button>}
                 </div>
                 </div>
             </div>
