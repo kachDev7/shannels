@@ -56,7 +56,6 @@ const Post = () => {
         .then(imageObjResponses => {
             console.log("> images saved successfully...")
             console.log(imageObjResponses)
-            console.log("2. wrapping up...")
             // Make a post request to api with set values
             fetch("https://bloc-eh-81008.herokuapp.com/post", {
                     method: 'POST',
