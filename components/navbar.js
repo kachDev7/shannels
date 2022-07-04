@@ -38,7 +38,7 @@ const Navbar = () => {
                 </ul>
             </div>
             {/* <!-- Hambuger menu : visible @md --> */}
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" onClick={toggleLinks}>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                  <span className="navbar-toggler-icon"></span>
             </button>
             {/* <!-- Nav links --> */}

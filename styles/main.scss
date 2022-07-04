@@ -1,6 +1,6 @@
 // Customize colors
 $primary: rgb(255, 11, 113);
-$link-color: unset;
+$link-color: black;
 
 
 // My CSS
@@ -36,6 +36,28 @@ $link-color: unset;
 .boda7{
     border: 2px solid rgb(9, 240, 240);
 }
+
+
+/* Spinner */
+.loader {
+    border: 10px solid rgb(252, 183, 211); /* Light grey */
+    border-top: 10px solid $primary; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.spin-box{
+    background-color: #fff;
+}
+
+
 
 // UNIVERSALS
 .rel{

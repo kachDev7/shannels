@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Loading from "../components/Loading";
 
 
 
@@ -17,6 +18,12 @@ const Post = () => {
     const [image2, setImage2] = useState("");
     const [author, setAuthor] = useState("");
     const [category, setCategory] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [failInfo, setFailInfo] = useState(false);
+    const [failBtn, setFailBtn] = useState(false);
+    const [successInfo, setSuccessInfo] = useState(false);
+    const [successBtn, setSuccessBtn] = useState(false);
+
     
     // upload image to cloudinary
     const postImage = async (image) => {
@@ -35,13 +42,22 @@ const Post = () => {
     // Handle Blog Post Upload
     const handlePost = async (event) => {
         event.preventDefault();
+        console.log("Started Posting...")
+        console.log("1. saving images...")
+        setIsLoading(true)
+        setFailBtn(false)
+        setFailInfo(false)
+        setSuccessBtn(false)
+        setSuccessInfo(false)
+        
         // First save images to cloudinary...
         Promise.all([postImage(image1), postImage(image2)])
         // then return response object of the saved image: Array
         .then(imageObjResponses => {
+            console.log("> images saved successfully...")
             console.log(imageObjResponses)
+            console.log("2. wrapping up...")
             // Make a post request to api with set values
-            const url = process.env.URL;
             fetch("https://bloc-eh-81008.herokuapp.com/post", {
                     method: 'POST',
                     headers: {"Content-Type" : "application/json"},
@@ -57,11 +73,16 @@ const Post = () => {
                         "category": category
                     })
                 }).then(res => {
+                    setIsLoading(false);
                     if(!res.ok){
-                        alert(" Sorry! Blog Post not successful.");
+                        setFailInfo(true)
+                        setFailBtn(true)
+                        console.log("Failed!");                        
                     }else{
-                        alert("Blog Posted Successful!");
-                        router.push('/');
+                        console.log("Successful!")
+                        setSuccessInfo(true)
+                        setSuccessBtn(true)
+                        // router.push('/');
                     }
                     
                 })
@@ -69,7 +90,7 @@ const Post = () => {
     }
 
     return (
-        <div className="d-flex jac">
+        <div className="d-flex jac dim">
             <form className='form-width br-20 p-5 my-3 round-boda' onSubmit={handlePost}  encType="multipart/form-data">
                 <label htmlFor="" className='form-label'>Title</label>
                 <input type="text" name="title" onChange={(e) => { setTitle(e.target.value)}} className='form-control mb-3 input-width'/>
@@ -96,9 +117,38 @@ const Post = () => {
                 <input type="text" name="category" onChange={(e) => { setCategory(e.target.value)}} className='form-control mb-3 input-width mb-4'  />
             
                 <div className="text-center button">
-                    <button type="submit"  className="btn btn-primary mb-3  text-light input-width">Post</button>
+                    <button type="submit"  className="btn btn-primary mb-3  text-light input-width" data-bs-toggle="modal" data-bs-target="#exampleModal">Post</button>
                 </div>
             </form>
+
+            {/* Modal */}
+
+            
+            {/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+            </button> */}
+
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-secondary" id="exampleModalLabel">Please Wait</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {isLoading && <Loading/>}
+                    {failInfo && <h1 className="text-center text-danger">Failed!</h1>}
+                    {successInfo && <h1 className="text-center text-primary">Successful!</h1>}
+                </div>
+                <div class="modal-footer">
+                   {failBtn && <button type="button" class="btn btn-secondary" onClick={handlePost}>Retry</button>}
+                    {successBtn && <button type="button" class="btn btn-primary text-light" onClick={()=> router.push('/')}>Home</button>}
+                </div>
+                </div>
+            </div>
+            </div>
+
         </div>
     )
 }
